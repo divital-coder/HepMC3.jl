@@ -31,7 +31,7 @@ else()
   message(STATUS "The executable wrapit was not found. Building wrapper using the generated jlHepMC3.cxx/h files from the sources.")
 endif()
 
-file(GLOB GEN_SOURCES CONFIGURE_DEPENDS  ${SOURCE_DIR}/cpp/Jl*.cxx)
+file(GLOB GEN_SOURCES CONFIGURE_DEPENDS ${SOURCE_DIR}/cpp/Jl*.cxx)
 add_library(HepMC3Wrap SHARED ${SOURCE_DIR}/cpp/HepMC3Wrap.cxx ${SOURCE_DIR}/cpp/jlHepMC3.cxx ${GEN_SOURCES})
 
 #target_compile_definitions(HepMC3Wrap PUBLIC VERBOSE_IMPORT)

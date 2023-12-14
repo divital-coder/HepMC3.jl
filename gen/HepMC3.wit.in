@@ -14,6 +14,9 @@ include_dirs        = [ "./cpp",
                         "@JlCxx_DIR@/../../../include"]
 
 input = [
-    "HepMC3/HepMC3.h",
-    "HepMC3/GenEvent.h"
+        "HepMC3/GenEvent.h",
+        "HepMC3/GenVertex.h",
+        "HepMC3/GenParticle.h",
+#        "HepMC3/Print.h",
+#        "HepMC3/Selector.h",
 ]
