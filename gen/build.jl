@@ -5,8 +5,6 @@ using HepMC3_jll
 builddir = joinpath(@__DIR__, "build")
 sourcedir = @__DIR__
 cd(@__DIR__)
-mkpath(builddir)
-cd(builddir)
 
 if Sys.isapple()
     ENV["SDKROOT"]=readchomp(`xcrun --sdk macosx --show-sdk-path`)
@@ -16,5 +14,5 @@ cxxwrap_prefix = CxxWrap.prefix_path()
 hepmc3_prefix = HepMC3_jll.artifact_dir
 
 run(`cmake -DCMAKE_BUILD_TYPE=Release
-           -DCMAKE_PREFIX_PATH=$cxxwrap_prefix\;$hepmc3_prefix  $sourcedir`)
-run(`cmake --build . --config Release --parallel 8`)
+           -DCMAKE_PREFIX_PATH=$cxxwrap_prefix\;$hepmc3_prefix -S $sourcedir -B $builddir`)
+run(`cmake --build $builddir --config Release --parallel 8`)

@@ -20,5 +20,4 @@ end
 end
 
 # Import the library
-using .HePMC3
-
+using .HepMC3

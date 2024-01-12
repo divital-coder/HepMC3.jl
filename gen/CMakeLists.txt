@@ -26,15 +26,13 @@ if(WRAPIT_EXECUTABLE)
     COMMAND mkdir -p ${SOURCE_DIR}/jl
     COMMAND ${WRAPIT_EXECUTABLE} --force -v 1 ${SOURCE_DIR}/HepMC3.wit
     WORKING_DIRECTORY ${SOURCE_DIR}
-    DEPENDS ${SOURCE_DIR}/HepMC3.wit)
+    DEPENDS ${SOURCE_DIR}/HepMC3.wit.in)
 else()
   message(STATUS "The executable wrapit was not found. Building wrapper using the generated jlHepMC3.cxx/h files from the sources.")
 endif()
 
 file(GLOB GEN_SOURCES CONFIGURE_DEPENDS ${SOURCE_DIR}/cpp/Jl*.cxx)
 add_library(HepMC3Wrap SHARED ${SOURCE_DIR}/cpp/HepMC3Wrap.cxx ${SOURCE_DIR}/cpp/jlHepMC3.cxx ${GEN_SOURCES})
-
-#target_compile_definitions(HepMC3Wrap PUBLIC VERBOSE_IMPORT)
 target_include_directories(HepMC3Wrap PRIVATE ${SOURCE_DIR} ${HEPMC3_INCLUDE_DIR})
 target_link_libraries(HepMC3Wrap JlCxx::cxxwrap_julia JlCxx::cxxwrap_julia_stl HepMC3::HepMC3)
 

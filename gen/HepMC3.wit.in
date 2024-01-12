@@ -8,15 +8,17 @@ out_jl_dir          = "jl"
 
 clang_opts          = ["-v"]
 
-include_dirs        = [ "./cpp", 
+include_dirs        = [
+                        "./cpp", 
                         "@HEPMC3_INCLUDE_DIR@",
                         "@Julia_INCLUDE_DIRS@",  
                         "@JlCxx_DIR@/../../../include"]
 
-input = [
-        "HepMC3/GenEvent.h",
-        "HepMC3/GenVertex.h",
-        "HepMC3/GenParticle.h",
+input = ["HepMC3/Errors.h",
+#        "HepMC3/GenEvent.h",
+#        "HepMC3/GenVertex.h",
+#        "HepMC3/GenParticle.h",
+#        "HepMC3/Attribute.h",
 #        "HepMC3/Print.h",
 #        "HepMC3/Selector.h",
 ]
