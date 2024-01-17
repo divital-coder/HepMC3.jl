@@ -22,6 +22,3 @@ end
 
 # Import the library
 using .HepMC3
-
-println(names(HepMC3))
-
