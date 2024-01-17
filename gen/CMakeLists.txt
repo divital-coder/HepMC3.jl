@@ -31,6 +31,9 @@ else()
   message(STATUS "The executable wrapit was not found. Building wrapper using the generated jlHepMC3.cxx/h files from the sources.")
 endif()
 
+# This globbing line is broken, because at CMake configure time from clean
+# there are no *.cxx files - these are only generated when wrapit runs
+# Workaround is a double run of the build.jl script!
 file(GLOB GEN_SOURCES CONFIGURE_DEPENDS ${SOURCE_DIR}/cpp/Jl*.cxx)
 add_library(HepMC3Wrap SHARED ${SOURCE_DIR}/cpp/HepMC3Wrap.cxx ${SOURCE_DIR}/cpp/jlHepMC3.cxx ${GEN_SOURCES})
 target_include_directories(HepMC3Wrap PRIVATE ${SOURCE_DIR} ${HEPMC3_INCLUDE_DIR})

@@ -14,7 +14,7 @@ include_dirs        = [
                         "@Julia_INCLUDE_DIRS@",  
                         "@JlCxx_DIR@/../../../include"]
 
-input = ["HepMC3/Errors.h",
+input = ["HepMC3/FourVector.h",
 #        "HepMC3/GenEvent.h",
 #        "HepMC3/GenVertex.h",
 #        "HepMC3/GenParticle.h",
