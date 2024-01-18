@@ -16,9 +16,9 @@ include_dirs        = [
 
 input = ["HepMC3/FourVector.h",
 #        "HepMC3/GenEvent.h",
-#        "HepMC3/GenVertex.h",
-#        "HepMC3/GenParticle.h",
-#        "HepMC3/Attribute.h",
+         "HepMC3/GenVertex.h",
+         "HepMC3/GenParticle.h",
+         "HepMC3/Attribute.h",
 #        "HepMC3/Print.h",
 #        "HepMC3/Selector.h",
 ]
