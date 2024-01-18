@@ -9,6 +9,7 @@ docs/src/notebooks
 Manifest.toml
 */Manifest.toml
 .ipynb_checkpoints
+o.*
 
 HepMC3.wit
 jlHepMC3-report.txt
