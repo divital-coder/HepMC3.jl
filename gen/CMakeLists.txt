@@ -5,6 +5,10 @@ project(HepMC3Wrap)
 set(CMAKE_MACOSX_RPATH 1)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 
+# This makes prints a debug line for each import, which is very useful for
+# tracking errors
+add_definitions(-DVERBOSE_IMPORT)
+
 #---Find JlCxx package-------------------------------------------------------------
 find_package(JlCxx)
 get_target_property(JlCxx_location JlCxx::cxxwrap_julia LOCATION)
