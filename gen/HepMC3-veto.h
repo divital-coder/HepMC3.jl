@@ -6,3 +6,12 @@
 HepMC3::LongDoubleAttribute;
 HepMC3::VectorLongDoubleAttribute;
 
+// Try to avoid an issue in CxxWrap where normal pointers and pointers
+// to const get confused
+// From GenParticle.h
+std::vector<HepMC3::ConstGenParticlePtr> HepMC3::GenParticle::parents();
+std::vector<HepMC3::ConstGenParticlePtr> HepMC3::GenParticle::children()
+
+// From GenVertex.h
+const std::vector<HepMC3::ConstGenParticlePtr> & HepMC3::GenVertex::particles_in()
+const std::vector<HepMC3::ConstGenParticlePtr> & HepMC3::GenVertex::particles_out()
