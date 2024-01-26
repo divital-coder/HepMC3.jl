@@ -1,24 +1,33 @@
-# Test the wrapped library for a very basic HepMC3 example, containing
-# the 4-vector implementation
+# Test the wrapped library for HepMC3 4-vectors
 #
 
-# Inline definition of the module, avoid the need for environment setup stuff
-module HepMC3
+using Test
 
-using CxxWrap
-using Libdl
+include(joinpath(@__DIR__, "load_module.jl"))
 
-wrapped_lib_path = joinpath(@__DIR__, "..", "gen", "build", "lib")
+@testset "HepMC3 FourVector" begin
+    v1 = HepMC3!FourVector()
+    v2 = HepMC3!FourVector(1.2, 2.3, 3.4, 4.5)
 
-include(joinpath(@__DIR__, "..", "gen", "jl", "HepMC3-export.jl"))
+    @test x(v2) == 1.2
+    @test y(v2) == 2.3
+    @test z(v2) == 3.4
+    @test t(v2) == 4.5
 
-@wrapmodule(()->joinpath(wrapped_lib_path, "libHepMC3Wrap.$(Libdl.dlext)"))
+    v3 = v1 + v2
+    @test px(v3) == px(v2)
+    @test py(v3) == py(v2)
+    @test pz(v3) == pz(v2)
+    @test e(v3) == e(v2)
 
-function __init__()
-    @initcxx
+    @test HepMC3.is_zero(v1)
+
+    v4 = v3
+    set_px(v4, 9.99)
+    @test px(v4) == 9.99
+
+    @test HepMC3.length(v4) ≈ 10.800467582470677
+    @test HepMC3.phi(v4) ≈ 0.22628703995351376
+    @test HepMC3.rap(v4) ≈ 0.9857762898343254
+    @test HepMC3.eta(v4) ≈ 0.32586585368690585
 end
-
-end
-
-# Import the library
-using .HepMC3

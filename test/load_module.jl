@@ -1,4 +1,5 @@
-# Test the wrapped library for a very basic HepMC3 example
+# Test the wrapped library for a very basic HepMC3 example, containing
+# the 4-vector implementation
 #
 
 # Inline definition of the module, avoid the need for environment setup stuff

@@ -6,8 +6,8 @@
 HepMC3::LongDoubleAttribute;
 HepMC3::VectorLongDoubleAttribute;
 
-// Try to avoid an issue in CxxWrap where normal pointers and pointers
-// to const get confused
+// Try to avoid an issue in CxxWrap where shared_ptr<T> and shared_ptr<const T>
+// get confused: https://github.com/JuliaInterop/CxxWrap.jl/issues/405
 // From GenParticle.h
 std::vector<HepMC3::ConstGenParticlePtr> HepMC3::GenParticle::parents();
 std::vector<HepMC3::ConstGenParticlePtr> HepMC3::GenParticle::children()
