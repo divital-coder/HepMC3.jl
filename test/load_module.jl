@@ -1,8 +1,6 @@
-# Test the wrapped library for a very basic HepMC3 example, containing
-# the 4-vector implementation
-#
+# Load the HepMC3 wrapped library
 
-# Inline definition of the module, avoid the need for environment setup stuff
+# Use an inline definition of the module, avoid the need for environment setup stuff
 module HepMC3
 
 using CxxWrap

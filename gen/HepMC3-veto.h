@@ -2,6 +2,9 @@
 // To find the correct signature for the veto, examine the 
 // CXX files that wrapit produces
 
+// This is a base class, so it would not be used directly
+HepMC3::Attribute;
+
 // Long double has no mapping in Julia, so we suppress it
 HepMC3::LongDoubleAttribute;
 HepMC3::VectorLongDoubleAttribute;
