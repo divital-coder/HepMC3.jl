@@ -17,4 +17,6 @@ gen/cpp/JL*.cxx
 gen/cpp/*.h
 gen/cpp/jl*
 gen/cpp/generated_cxx
+
 gen/jl/*
+!gen/jl/HepMC3-extras.jl
