@@ -30,4 +30,10 @@ include(joinpath(@__DIR__, "load_module.jl"))
     @test HepMC3.phi(v4) ≈ 0.22628703995351376
     @test HepMC3.rap(v4) ≈ 0.9857762898343254
     @test HepMC3.eta(v4) ≈ 0.32586585368690585
+
+    px!(v3, -9.99)
+    @test px(v3) == -9.99
+    e!(v3, 189.99)
+    @test e(v3) == 189.99
+
 end
