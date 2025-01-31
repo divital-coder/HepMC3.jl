@@ -16,7 +16,11 @@ find_package(HepMC3 REQUIRED)
 
 file(REAL_PATH ${CMAKE_SOURCE_DIR}/../gen SOURCE_DIR)
 file(GLOB GEN_SOURCES CONFIGURE_DEPENDS  ${SOURCE_DIR}/cpp/Jl*.cxx)
-add_library(HepMC3Wrap SHARED ${SOURCE_DIR}/cpp/HepMC3Wrap.cxx ${SOURCE_DIR}/cpp/jlHepMC3.cxx ${GEN_SOURCES})
+add_library(HepMC3Wrap SHARED 
+    ${SOURCE_DIR}/cpp/HepMC3Wrap.cxx 
+    ${SOURCE_DIR}/cpp/HepMC3WrapImpl.cpp  # Add this line
+    ${SOURCE_DIR}/cpp/jlHepMC3.cxx 
+    ${GEN_SOURCES})
 
 target_include_directories(HepMC3Wrap PRIVATE ${SOURCE_DIR})
 target_link_libraries(HepMC3Wrap 
@@ -28,3 +32,5 @@ install(TARGETS HepMC3Wrap
         LIBRARY DESTINATION lib
         ARCHIVE DESTINATION lib
         RUNTIME DESTINATION lib)
+
+
